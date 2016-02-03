@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="page-header">
+        <h3>Your money requests</h3>
+        <button type="button" class="btn btn-sm btn-success" ng-click="add()">Add new</button>
+        <button type="button" class="btn btn-sm btn-danger" ng-click="reset()">Reset Data</button>
+    </div>
+    <div class="row">
+        <ul class="list-group" ng-repeat="item in items">
+            <a ng-href="#/add/{{item.id}}"><li class="list-group-item" ng-click="open(item)">
+                <span class="badge" ng:class="{true:'badge-done', false:'badge-pending'}[item.status=='done']">
+                    {{item.amount}} &euro;
+                </span>
+                {{item.recipient}}
+            </li></a>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+}
+.badge-done {
+  background-color: #398439;
+}
+.badge-pending {
+  background-color: #985f0d;
+}
+li {
+  cursor: pointer;
+}

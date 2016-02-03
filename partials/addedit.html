@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="page-header">
+        <h3>{{title}}</h3>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="recipient">Recipient</label>
+            <div class="input-group">
+                <div class="input-group-addon">@</div>
+                <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Recipient" ng-model="item.recipient" ng-disabled="view" />
+            </div>
+        </div>
+
+        <label for="amount">Amount</label>
+        <div class="input-group">
+            <div class="input-group-addon">&euro;</div>
+            <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount" ng-model="item.amount" ng-disabled="view"/>
+            <div class="input-group-addon">.00</div>
+        </div>
+
+        <label for="desc">Description</label>
+
+        <textarea class="form-control"  class="form-control" name="desc" id="desc" placeholder="Descriptopn" ng-model="item.description" ng-disabled="view"></textarea>
+
+
+        <div class="page-header"><div class="btn-group">
+            <button type="button" class="btn btn-lg btn-warning" ng-click="cancel()">Cancel</button>
+            <button type="button" class="btn btn-lg btn-success" ng-click="save(item)" ng-show="!view">Insert</button>
+        </div></div>
+
+
+
+    </form>
+</div>
