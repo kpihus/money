@@ -3,32 +3,56 @@
         <h3>{{title}}</h3>
     </div>
 
-    <form>
+    <form novalidate class="css-form" name="moneyform">
         <div class="form-group">
             <label for="recipient">Recipient</label>
             <div class="input-group">
                 <div class="input-group-addon">@</div>
-                <input type="text" class="form-control" name="recipient" id="recipient" placeholder="Recipient" ng-model="item.recipient" ng-disabled="view" />
+                <input type="email" class="form-control" name="recipient" id="recipient" required
+                       placeholder="Recipient" min="6" max="100" ng-model="item.recipient" ng-disabled="view"/>
+
+            </div>
+            <div ng-show="moneyform.$submitted || moneyform.recipient.$touched">
+                <div ng-show="moneyform.recipient.$error.required">Please enter e-mail</div>
+                <div ng-show="moneyform.recipient.$error.email">This e-mail is not correct</div>
             </div>
         </div>
 
         <label for="amount">Amount</label>
         <div class="input-group">
             <div class="input-group-addon">&euro;</div>
-            <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount" ng-model="item.amount" ng-disabled="view"/>
+            <input type="number" class="form-control" name="amount" id="amount" required min="1" max="2000" placeholder="Amount"
+                   ng-model="item.amount" ng-disabled="view"/>
             <div class="input-group-addon">.00</div>
+
+        </div>
+        <div ng-show="moneyform.$submitted || moneyform.amount.$touched">
+            <div ng-show="moneyform.amount.$error.required">Please enter desired amount</div>
+            <div ng-show="moneyform.amount.$error.number">Only numbers please. Morhe than 1, less than 2000</div>
+            <div ng-show="moneyform.amount.$error.min">Must be more than 0</div>
+            <div ng-show="moneyform.amount.$error.max">Must be less than 2000</div>
         </div>
 
         <label for="desc">Description</label>
 
-        <textarea class="form-control"  class="form-control" name="desc" id="desc" placeholder="Descriptopn" ng-model="item.description" ng-disabled="view"></textarea>
+        <textarea class="form-control" name="desc" id="desc" required minlength="10"
+                  maxlength="100" placeholder="Descriptopn" ng-model="item.description" ng-disabled="view"></textarea>
+
+        <div ng-show="moneyform.$submitted || moneyform.desc.$touched">
+            <div ng-show="moneyform.desc.$error.required">Description is required</div>
+            <div ng-show="moneyform.desc.$error.minlength">More than 10 characters pelase</div>
+            <div ng-show="moneyform.desc.$error.maxlength">Less than 100 characters pelase</div>
+        </div>
 
 
-        <div class="page-header"><div class="btn-group">
-            <button type="button" class="btn btn-lg btn-warning" ng-click="cancel()">Cancel</button>
-            <button type="button" class="btn btn-lg btn-success" ng-click="save(item)" ng-show="!view">Insert</button>
-        </div></div>
-
+        <div class="page-header">
+            <div class="btn-group">
+                <button type="button" class="btn btn-lg btn-warning" ng-click="cancel()">Cancel</button>
+                <button type="submit" class="btn btn-lg btn-success" ng-click="save(item)" ng-show="!view"
+                        >Insert
+                </button>
+            </div>
+        </div>
 
 
     </form>
