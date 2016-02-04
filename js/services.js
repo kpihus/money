@@ -7,7 +7,7 @@ var data = [
     {
         id: 1,
         recipient: "John Smith",
-        amount: "300",
+        amount: 300,
         account: "BH67BMAG00001299123456",
         description: "Just for fun",
         status: "done"
@@ -15,7 +15,7 @@ var data = [
     {
         id:2,
         recipient: "Jane Smith",
-        amount: "500",
+        amount: 500,
         account: "BH67BMAG34501299123456",
         description: "Cinema",
         status: "pending"
@@ -23,7 +23,7 @@ var data = [
     {
         id: 3,
         recipient: "Jane Doe",
-        amount: "500",
+        amount: 500,
         account: "BH67BMAG34501299123456",
         description: "Cinema",
         status: "pending"
@@ -68,6 +68,6 @@ function(storage){
             return true;
         }
     }
-}])
+}]);
 
 

@@ -43,9 +43,9 @@ moneyControllers.controller('AddeditController', ['$scope','comm','$location','$
             $location.path('/')
         };
 
-        $scope.save = function(item){
+        $scope.save = function(){
             console.log('save');
-            if(comm.save(item)){
+            if(comm.save($scope.item)){
                 $location.path('/')
             }
         }

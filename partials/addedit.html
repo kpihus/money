@@ -3,7 +3,7 @@
         <h3>{{title}}</h3>
     </div>
 
-    <form novalidate class="css-form" name="moneyform">
+    <form novalidate class="css-form" name="moneyform" ng-submit="moneyform.$valid && save()">
         <div class="form-group">
             <label for="recipient">Recipient</label>
             <div class="input-group">
@@ -48,8 +48,7 @@
         <div class="page-header">
             <div class="btn-group">
                 <button type="button" class="btn btn-lg btn-warning" ng-click="cancel()">Cancel</button>
-                <button type="submit" class="btn btn-lg btn-success" ng-click="save(item)" ng-show="!view"
-                        >Insert
+                <button type="submit" class="btn btn-lg btn-success" ng-show="!view">Insert
                 </button>
             </div>
         </div>
